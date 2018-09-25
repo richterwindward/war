@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Deck {
 
     private ArrayList<Card> cards;
+    private ArrayList<Card> FirstHalf;
+    private ArrayList<Card> SecondHalf;
 
     /**
      * Initializes an unshuffled deck.
@@ -17,5 +19,23 @@ public class Deck {
         }
     }
 
+    public void Shuffle() {
+        ArrayList<Card> temp = new ArrayList<Card>();
+        for (Card c : cards){
+            temp.add((int)(Math.random()*temp.size()+.5), c);
+        }
+        for (int i = 0; i < temp.size(); i++){
+            cards.set(i, temp.get(i));
+        }
+    }
+
+    public void Cut() {
+        FirstHalf = (ArrayList)cards.subList(0, 27);
+        SecondHalf = (ArrayList)cards.subList(27, 53);
+    }
+
+    public ArrayList<Card> getFirstHalf(){
+        return FirstHalf;
+    }
 
 }
