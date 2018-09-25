@@ -38,4 +38,8 @@ public class Deck {
         return FirstHalf;
     }
 
+    public ArrayList<Card> getSecondHalf(){
+        return SecondHalf;
+    }
+
 }
