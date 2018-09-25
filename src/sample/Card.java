@@ -9,8 +9,17 @@ public class Card {
         this.suit = suit;
     }
 
-    static String toString() {
-        
+    public String toString() {
+        switch (this.suit) {
+            case 11:
+                return "Jack";
+            case 12:
+                return "Queen";
+            case 13:
+                return "King";
+            case 14:
+                return "Ace";
+        }
     }
 
 }
