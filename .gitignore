@@ -1,2 +1,4 @@
 # Ignore all DS Store files
 *.DS_Store
+*.iml
+*.xml
