@@ -7,7 +7,7 @@ public class Deck {
     private ArrayList<Card> cards;
 
     /**
-     * Initializes an unshuffled deck.
+     * Initializes an un-shuffled deck.
      */
     public Deck() {
         for(int i = 0; i < 13; i++) {
@@ -16,6 +16,5 @@ public class Deck {
             }
         }
     }
-
 
 }
