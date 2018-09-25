@@ -6,7 +6,7 @@ public class Deck {
 
     private ArrayList<Card> cards;
 
-    final 
+    final
 
     public Deck() {
         for(int i = 0; i < 52; i++) {
