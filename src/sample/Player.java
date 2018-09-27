@@ -10,8 +10,8 @@ public class Player {
     }
 
     public Card playCard() {
-        Card playedCard = this.cards.get(cards.size() - 1);
-        this.cards.remove(cards.size() - 1);
+        Card playedCard = this.cards.get(0);
+        this.cards.remove(0);
         return playedCard;
     }
 
@@ -31,8 +31,8 @@ public class Player {
     public ArrayList<Card> getTopCards(int nCards) {
         ArrayList<Card> result = new ArrayList<Card>();
         for(int i = 0; i < nCards; i++) {
-            result.add(0, this.cards.get(cards.size() - 1));
-            this.cards.remove(this.cards.size() - 1);
+            result.add(0, this.cards.get(0));
+            this.cards.remove(0);
         }
         return result;
     }
