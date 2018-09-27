@@ -9,7 +9,7 @@ public class Deck {
     private ArrayList<Card> SecondHalf;
 
     /**
-     * Initializes an unshuffled deck.
+     * Initializes an un-shuffled deck.
      */
     public Deck() {
         for(int i = 0; i < 13; i++) {
@@ -22,7 +22,7 @@ public class Deck {
     public void Shuffle() {
         ArrayList<Card> temp = new ArrayList<Card>();
         for (Card c : cards){
-            temp.add((int)(Math.random()*temp.size()+.5), c);
+            temp.add((int)(Math.random() * temp.size() + 0.5), c);
         }
         for (int i = 0; i < temp.size(); i++){
             cards.set(i, temp.get(i));
@@ -41,5 +41,4 @@ public class Deck {
     public ArrayList<Card> getSecondHalf(){
         return SecondHalf;
     }
-
 }

@@ -1,9 +1,10 @@
 package sample; // test
 
+
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -15,10 +16,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        System.out.println(c1.compareTo(c2));
         primaryStage.setTitle("War");
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();
+        
+        boolean done = false;
+
+        while(!done) {
+            
+        }
     }
 
 
