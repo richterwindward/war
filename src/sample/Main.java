@@ -16,11 +16,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        System.out.println(c1.compareTo(c2));
         primaryStage.setTitle("War");
         primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();
-        
+
         boolean done = false;
 
         while(!done) {
