@@ -1,7 +1,11 @@
 package sample;
 
+import javafx.scene.image.Image;
+
 public class Card implements Comparable<Card> {
     final static char[] suits = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+
+    public Image cardImage;
 
     private char suit;
 
