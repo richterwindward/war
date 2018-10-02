@@ -27,6 +27,10 @@ public class Main extends Application {
 
         boolean done = false;
 
+        Deck deck = new Deck();
+
+        deck.Shuffle();
+
 
         /*
         while(!done) {

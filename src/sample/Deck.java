@@ -12,9 +12,15 @@ public class Deck {
      * Initializes an un-shuffled deck.
      */
     public Deck() {
+        this.cards = new ArrayList<Card>();
+        this.FirstHalf = new ArrayList<Card>();
+        this.SecondHalf = new ArrayList<Card>();
+
         for(int i = 0; i < 13; i++) {
             for (int j = 0; j < 4; j++) {
                 this.cards.add(new Card(Card.suits[i]));
+                String imgPath = this.cards.get(this.cards.size() - 1).getPaths()[j];
+                this.cards.get(this.cards.size() - 1).setImagePath(imgPath);
             }
         }
     }
@@ -37,7 +43,6 @@ public class Deck {
     public ArrayList<Card> getFirstHalf(){
         return FirstHalf;
     }
-
     public ArrayList<Card> getSecondHalf(){
         return SecondHalf;
     }

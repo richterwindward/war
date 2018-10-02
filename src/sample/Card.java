@@ -10,14 +10,25 @@ public class Card implements Comparable<Card> {
     final static String spadesSuffix = "_of_spades.png";
 
     public Image cardImage;
-
     private char suit;
+    private String[] paths;
+    private String imagePath;
 
     public Card(char suit) {
         this.suit = suit;
-        switch (this.suit) {
+        this.paths = this.toURL();
+    }
 
-        }
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public String[] getPaths() {
+        return paths;
     }
 
     private String[] toURL() {
@@ -53,7 +64,7 @@ public class Card implements Comparable<Card> {
                     prefix + heartsSuffix,
                     prefix + spadesSuffix
             };
-            
+
             return res;
         }
     }
