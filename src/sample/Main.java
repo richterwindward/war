@@ -2,10 +2,13 @@ package sample; // test
 
 
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class Main extends Application {
 
@@ -16,15 +19,20 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Group root = new Group();
         primaryStage.setTitle("War");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 600, 500, Color.BLACK));
         primaryStage.show();
+
 
         boolean done = false;
 
+
+        /*
         while(!done) {
             
         }
+        */
     }
 
 

@@ -11,6 +11,10 @@ public class Card implements Comparable<Card> {
 
     public Card(char suit) {
         this.suit = suit;
+        switch (this.suit) {
+            case 2:
+                this.cardImage = new Image("../../PNG-cards-1.3/");
+        }
     }
 
     @Override
