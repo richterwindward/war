@@ -1,8 +1,11 @@
 package sample;
 
+import java.util.ArrayList;
+
 public class GameManager {
     private Player p1;
     private Player p2;
+    private ArrayList<Card> field;
 
     public GameManager(Player p1, Player p2) {
         this.p1 = p1;
@@ -17,15 +20,23 @@ public class GameManager {
             /* Player one wins */
             this.p1.addCard(playerOneCard, 0);
             this.p1.addCard(playerTwoCard, 0);
+            for (Card c : field){ this.p1.addCard(c, 0); }
             return 1;
         } else if(playerOneCard.compareTo(playerTwoCard) < 0) {
             /* Player two wins */
             this.p2.addCard(playerOneCard, 0);
             this.p2.addCard(playerTwoCard, 0);
+            for (Card c : field){ this.p2.addCard(c, 0); }
             return 1;
         } else {
             /* Tie */
+            field.add(playerOneCard);
+            field.add(playerTwoCard);
+            for (Card c : p1.getTopCards(3)){ field.add(c); }
+            for (Card c : p2.getTopCards(3)){ field.add(c); }
+            this.nextRound();
         }
+        return 0; // temp to let me run app
     }
 
     private Player checkWin() {
