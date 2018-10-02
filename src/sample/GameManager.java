@@ -10,6 +10,7 @@ public class GameManager {
     public GameManager(Player p1, Player p2) {
         this.p1 = p1;
         this.p2 = p2;
+        this.field = new ArrayList<Card>();
     }
 
     public int nextRound() {
@@ -27,7 +28,7 @@ public class GameManager {
             this.p2.addCard(playerOneCard, 0);
             this.p2.addCard(playerTwoCard, 0);
             for (Card c : field){ this.p2.addCard(c, 0); }
-            return 1;
+            return 2;
         } else {
             /* Tie */
             field.add(playerOneCard);
@@ -36,7 +37,7 @@ public class GameManager {
             for (Card c : p2.getTopCards(3)){ field.add(c); }
             this.nextRound();
         }
-        return 0; // temp to let me run app
+        return -1; // Something went wrong. This should never happen.
     }
 
     private Player checkWin() {
@@ -47,4 +48,9 @@ public class GameManager {
         else
             return null;
     }
+
+    int getFieldCount() {
+        return this.field.size();
+    }
+
 }
