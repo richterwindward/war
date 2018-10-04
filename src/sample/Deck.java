@@ -36,8 +36,12 @@ public class Deck {
     }
 
     public void Cut() {
-        FirstHalf = (ArrayList)cards.subList(0, 27);
-        SecondHalf = (ArrayList)cards.subList(27, 53);
+        for(int i = 0; i < 26; i++) {
+            this.FirstHalf.add(this.cards.get(i));
+        }
+        for(int i = 27; i < 52; i++) {
+            this.SecondHalf.add(this.cards.get(i));
+        }
     }
 
     public ArrayList<Card> getFirstHalf(){

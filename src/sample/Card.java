@@ -3,6 +3,8 @@ package sample;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Card implements Comparable<Card> {
     final static char[] suits = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
@@ -25,8 +27,8 @@ public class Card implements Comparable<Card> {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
-        System.out.println(this.imagePath);
         this.cardImage = new Image(this.imagePath);
+        System.out.println(this.imagePath);
         this.cardRect = new Rectangle();
         this.cardRect.setFill(new ImagePattern(this.cardImage));
     }
@@ -40,8 +42,10 @@ public class Card implements Comparable<Card> {
     }
 
     private String[] toURL() {
+        Path currentRelativePath = Paths.get("");
+        String relPath = currentRelativePath.toAbsolutePath().toString() + "/PNG-cards-1.3/";
         if(suit >= 2 && suit <= 10) {
-            String prefix = "file://" + String.valueOf((int)suit);
+            String prefix = "file://" + relPath +  String.valueOf((int)suit);
             String[] res = {
                     prefix + clubsSuffix,
                     prefix + diamondsSuffix,
@@ -54,16 +58,16 @@ public class Card implements Comparable<Card> {
             switch (suit) {
                 case 11:
                     // jack
-                    prefix = "file://jack";
+                    prefix = "file://" + relPath + "jack";
                 case 12:
                     // queen
-                    prefix = "file://queen";
+                    prefix = "file://" + relPath + "queen";
                 case 13:
                     // king
-                    prefix = "file://king";
+                    prefix =  "file://" + relPath + "king";
                 case 14:
                     // ace
-                    prefix = "file://ace";
+                    prefix =  "file://" + relPath + "ace";
             }
 
             String[] res = {

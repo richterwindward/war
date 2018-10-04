@@ -28,7 +28,7 @@ public class Main extends Application {
         boolean done = false;
 
         Deck deck = new Deck();
-
+        deck.Cut();
         deck.Shuffle();
         System.out.println(deck.getFirstHalf().size());
 
