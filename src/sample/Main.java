@@ -21,7 +21,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Group root = new Group();
         primaryStage.setTitle("War");
-        primaryStage.setScene(new Scene(root, 600, 500, Color.BLACK));
+        primaryStage.setScene(new Scene(root, 800, 800, Color.BLACK));
         primaryStage.show();
 
 
@@ -30,8 +30,9 @@ public class Main extends Application {
         Deck deck = new Deck();
 
         deck.Shuffle();
+        System.out.println(deck.getFirstHalf().size());
 
-
+        root.getChildren().add(deck.getFirstHalf().get(0).cardRect);
         /*
         while(!done) {
             

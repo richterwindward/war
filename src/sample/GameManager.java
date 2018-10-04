@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.Group;
+
 import java.util.ArrayList;
 
 public class GameManager {
@@ -38,6 +40,13 @@ public class GameManager {
             this.nextRound();
         }
         return -1; // Something went wrong. This should never happen.
+    }
+
+    /**
+     *  Looks at the field and renders the back of each players' deck
+     */
+    public void animateBoard(Group root) {
+
     }
 
     private Player checkWin() {
