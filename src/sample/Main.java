@@ -7,8 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
@@ -23,35 +21,33 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Group root = new Group();
         primaryStage.setTitle("War");
-        primaryStage.setScene(new Scene(root, 1300, 800, Color.BLACK));
+        primaryStage.setScene(new Scene(root, 800, 800, Color.BLACK));
         primaryStage.show();
 
 
         boolean done = false;
 
         Deck deck = new Deck();
-        deck.Cut();
         deck.Shuffle();
+        deck.Cut();
+        for (Card c: deck.getFirstHalf()) {
+            System.out.println((int)c.suit + "\n");
+        }
         System.out.println(deck.getFirstHalf().size());
 
+        Player user = new Player(deck.getFirstHalf());
+        Player computer = new Player(deck.getSecondHalf());
 
-/**
- *  If we have the button class in the while loop we can just clear the board (literally delete everything) at the end
- *  of each iteration if memory/lag becomes a problem and it should be fine.
- */
+        // root.getChildren().add(deck.getFirstHalf().get(0).cardRect);
+
+        GameManager manager = new GameManager(user, computer);
+
+        manager.nextRound(root);
+
+
         /*
         while(!done) {
-
-            Button btn = new Button();
-            btn.setText("War!");
-
-            btn.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event){
-                    (GameManager object).nextRound(root);
-                }
-            });
-
+            
         }
         */
     }

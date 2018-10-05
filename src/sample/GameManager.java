@@ -34,26 +34,25 @@ public class GameManager {
         animateBoard(root, p1PlayedCard);
         animateBoard(root, p2PlayedCard);
 
-        // pause so players can see board src: http://tomasmikula.github.io/blog/2014/06/04/timers-in-javafx-and-reactfx.html
-        Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(2500),
-                ae -> doNothing())); // honestly no clue if this is gunna work
-        timeline.play();
-
-
         if (playerOneCard.compareTo(playerTwoCard) > 0) {
             /* Player one wins */
+            System.out.println("Player One Wins! Their card: " + (int)playerOneCard.suit);
+            System.out.println("Player Two Lose! Their card: " + (int)playerTwoCard.suit);
+
             this.p1.addCard(playerOneCard, 0);
             this.p1.addCard(playerTwoCard, 0);
             for (Card c : field){ this.p1.addCard(c, 0); }
             return 1;
         } else if(playerOneCard.compareTo(playerTwoCard) < 0) {
             /* Player two wins */
+            System.out.println("Player One Loses! Their card: " + (int)playerOneCard.suit);
+            System.out.println("Player Two Wins! Their card: " + (int)playerTwoCard.suit);
             this.p2.addCard(playerOneCard, 0);
             this.p2.addCard(playerTwoCard, 0);
             for (Card c : field){ this.p2.addCard(c, 0); }
             return 2;
         } else {
+            System.out.println("War!");
             /* Tie */
             field.add(playerOneCard);
             field.add(playerTwoCard);
@@ -82,10 +81,6 @@ public class GameManager {
 
     public void animateBoard(Group root, Rectangle r) {
         root.getChildren().add(r);
-    }
-
-    private void doNothing(){
-
     }
 
     public Rectangle renderCard(Card C, int x, int y){

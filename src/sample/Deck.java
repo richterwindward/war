@@ -1,6 +1,8 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Deck {
 
@@ -26,13 +28,7 @@ public class Deck {
     }
 
     public void Shuffle() {
-        ArrayList<Card> temp = new ArrayList<Card>();
-        for (Card c : cards){
-            temp.add((int)(Math.random() * temp.size() + 0.5), c);
-        }
-        for (int i = 0; i < temp.size(); i++){
-            cards.set(i, temp.get(i));
-        }
+        Collections.shuffle(cards);
     }
 
     public void Cut() {
