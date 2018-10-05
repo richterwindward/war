@@ -16,7 +16,7 @@ public class Card implements Comparable<Card> {
     public Image cardImage;
     public Rectangle cardRect;
 
-    private char suit;
+    public char suit;
     private String[] paths;
     private String imagePath;
 
@@ -29,7 +29,7 @@ public class Card implements Comparable<Card> {
         this.imagePath = imagePath;
         this.cardImage = new Image(this.imagePath);
         System.out.println(this.imagePath);
-        this.cardRect = new Rectangle();
+        this.cardRect = new Rectangle(100, 100, 240, 360);
         this.cardRect.setFill(new ImagePattern(this.cardImage));
     }
 
