@@ -68,21 +68,25 @@ public class Card implements Comparable<Card> {
             return res; // array with the four complete file paths
         } else { // same as above but instead of just using the number in the file path, has to use the names of the face cards
             String prefix = "*";
+
             switch (suit) { // cases where each card value (number) corresponds to the name of a face
                 case 11:
                     // jack
                     prefix = "file://" + relPath + "jack";
+                    break;
                 case 12:
                     // queen
                     prefix = "file://" + relPath + "queen";
+                    break;
                 case 13:
                     // king
                     prefix =  "file://" + relPath + "king";
+                    break;
                 case 14:
                     // ace
                     prefix =  "file://" + relPath + "ace";
+                    break;
             }
-
             String[] res = { // four suits
                     prefix + clubsSuffix,
                     prefix + diamondsSuffix,

@@ -31,13 +31,9 @@ import javafx.scene.image.Image;
 
 public class Main extends Application {
 
-    /* if this is the class we're using for the game I think we should have a method here we can run for ties, a while loop that runs until
-    one of the players' decks are 0, and then I'm not sure if we need methods for the actual player since we'll just be using touch events
-    with buttons or smth else. we also prob need array lists that represent what cards the players have played on the field.
-     */
-
     @Override
     public void start(Stage primaryStage) throws Exception{
+        // gui setup stuff
         Group root = new Group();
         primaryStage.setTitle("War");
         primaryStage.setScene(new Scene(root, 800, 800, Color.BLACK));
@@ -49,8 +45,6 @@ public class Main extends Application {
         gameStatus.setLayoutY(400);
 
         root.getChildren().add(gameStatus);
-
-        boolean done = false;
 
         Deck deck = new Deck();
         deck.Shuffle();
@@ -73,7 +67,7 @@ public class Main extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event){
-                int result = (manager).nextRound(root);
+                int result = (manager).nextRound(root); // returns 1 on user win and 2 on cpu win
 
                 if(result == 1) {
                     gameStatus.setText("User wins round!");
