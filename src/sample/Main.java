@@ -2,9 +2,12 @@ package sample; // test
 
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -38,18 +41,34 @@ public class Main extends Application {
         Player user = new Player(deck.getFirstHalf());
         Player computer = new Player(deck.getSecondHalf());
 
-        // root.getChildren().add(deck.getFirstHalf().get(0).cardRect);
+        //root.getChildren().add(deck.getFirstHalf().get(0).cardRect);
 
         GameManager manager = new GameManager(user, computer);
 
+        // testing
+        manager.nextRound(root);
+        root.getChildren().clear(); // we're going to need to put this line in the while loop otherwise it'll give us duplicate children errors
         manager.nextRound(root);
 
 
-        /*
-        while(!done) {
-            
+
+
+        /*while(!done) {
+
+            Button btn = new Button();
+            btn.setText("War!");
+            root.getChildren().add(btn);
+
+            btn.setOnAction(new EventHandler<ActionEvent>(){
+                @Override
+                public void handle(ActionEvent event){
+                    (manager).nextRound(root);
+                }
+            });
         }
-        */
+*/
+
+
     }
 
 
