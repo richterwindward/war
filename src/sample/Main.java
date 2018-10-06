@@ -56,30 +56,23 @@ public class Main extends Application {
         //root.getChildren().add(deck.getFirstHalf().get(0).cardRect);
 
         GameManager manager = new GameManager(user, computer);
+        Button btn = new Button();
+        btn.setText("War!");
+        root.getChildren().add(btn);
 
-        // testing
-        manager.nextRound(root);
-        root.getChildren().clear(); // we're going to need to put this line in the while loop otherwise it'll give us duplicate children errors
-        manager.nextRound(root);
+        btn.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent event){
+                (manager).nextRound(root);
+                if (manager.checkWin() == user) {
 
+                } else if (manager.checkWin() == computer) {
 
-
-
-        /*while(!done) {
-
-            Button btn = new Button();
-            btn.setText("War!");
-            root.getChildren().add(btn);
-
-            btn.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event){
-                    (manager).nextRound(root);
+                } else {
+                    // Nobody has won
                 }
-            });
-        }
-*/
-
+            }
+        });
 
     }
 

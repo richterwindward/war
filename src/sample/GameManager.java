@@ -70,6 +70,7 @@ public class GameManager {
 
             // checks and adds any other wagered cards
             for (Card c : field){ this.p2.addCard(c, p2.cardCount()-1); }
+
             return 2;
 
         } else {
@@ -114,7 +115,7 @@ public class GameManager {
     }
 
     // checks to see if a player has won
-    private Player checkWin() {
+    public Player checkWin() {
         if (this.p1.cardCount() == 0)
             return this.p2;
         else if (this.p2.cardCount() == 0)
