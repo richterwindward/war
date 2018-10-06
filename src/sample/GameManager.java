@@ -84,7 +84,7 @@ public class GameManager {
 
             // stacks rectangles with the cardback image that represents the wagered cards
             for (int i = 0; i < field.size(); i++){
-                Rectangle r = new Rectangle(385, 372, 30, 56); // img src: https://i.pinimg.com/originals/10/80/a4/1080a4bd1a33cec92019fab5efb3995d.png
+                Rectangle r = new Rectangle(385, 372, 30, 56);
                 Image img = new Image("file://" + Paths.get("").toAbsolutePath().toString() + "/PNG-cards-1.3/gen_cardback.png");
                 r.setFill(new ImagePattern(img));
 

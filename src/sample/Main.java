@@ -13,6 +13,18 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
+/**
+ * SOURCES:
+ *
+ * card images:
+ * https://opengameart.org/content/playing-cards-vector-png
+ * https://i.pinimg.com/originals/10/80/a4/1080a4bd1a33cec92019fab5efb3995d.png
+ *
+ * ideas:
+ * https://stackoverflow.com/questions/22848829/how-do-i-add-an-image-inside-a-rectangle-or-a-circle-in-javafx
+ * https://stackoverflow.com/questions/27066484/remove-all-children-from-a-group-without-knowing-the-containing-nodes
+ */
+
 public class Main extends Application {
 
     /* if this is the class we're using for the game I think we should have a method here we can run for ties, a while loop that runs until
