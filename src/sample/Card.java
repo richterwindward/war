@@ -36,8 +36,6 @@ public class Card implements Comparable<Card> {
         this.imagePath = imagePath;
         this.cardImage = new Image(this.imagePath);
 
-        System.out.println(this.imagePath);
-
         // makes the rectangle object that represents the card with its image
         this.cardRect = new Rectangle(315, 50, 170, 250);
         this.cardRect.setFill(new ImagePattern(this.cardImage));

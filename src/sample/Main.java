@@ -49,15 +49,9 @@ public class Main extends Application {
         Deck deck = new Deck();
         deck.Shuffle();
         deck.Cut();
-        for (Card c: deck.getFirstHalf()) {
-            System.out.println((int)c.suit + "\n");
-        }
-        System.out.println(deck.getFirstHalf().size());
 
         Player user = new Player(deck.getFirstHalf());
         Player computer = new Player(deck.getSecondHalf());
-
-        //root.getChildren().add(deck.getFirstHalf().get(0).cardRect);
 
         GameManager manager = new GameManager(user, computer);
         Button btn = new Button();
