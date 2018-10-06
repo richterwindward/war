@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -23,6 +24,9 @@ import javafx.scene.image.Image;
  * ideas:
  * https://stackoverflow.com/questions/22848829/how-do-i-add-an-image-inside-a-rectangle-or-a-circle-in-javafx
  * https://stackoverflow.com/questions/27066484/remove-all-children-from-a-group-without-knowing-the-containing-nodes
+ *
+ * shuffle:
+ * https://docs.oracle.com/javase/6/docs/api/java/util/Collections.html
  */
 
 public class Main extends Application {
@@ -39,6 +43,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 800, 800, Color.BLACK));
         primaryStage.show();
 
+        Label gameStatus = new Label("Press War to start a new round.");
+
+        gameStatus.setLayoutX(400);
+        gameStatus.setLayoutY(400);
+
+        root.getChildren().add(gameStatus);
 
         boolean done = false;
 
@@ -63,14 +73,23 @@ public class Main extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event){
-                (manager).nextRound(root);
-                if (manager.checkWin() == user) {
+                int result = (manager).nextRound(root);
 
+                if(result == 1) {
+                    gameStatus.setText("User wins round!");
+                } else {
+                    gameStatus.setText("Computer wins round!");
+                }
+                if (manager.checkWin() == user) {
+                    gameStatus.setText("User wins it all!");
                 } else if (manager.checkWin() == computer) {
+                    gameStatus.setText("Computer wins it all!");
 
                 } else {
                     // Nobody has won
+                    root.getChildren().add(btn);
                 }
+                root.getChildren().add(gameStatus);
             }
         });
 

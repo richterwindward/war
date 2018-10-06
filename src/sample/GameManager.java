@@ -18,6 +18,8 @@ public class GameManager {
     private Player p1;
     private Player p2;
     private ArrayList<Card> field; // all the cards that are temporarily on the field and not owned by either player yet
+    private Rectangle p1PlayedCard;
+    private Rectangle p2PlayedCard;
 
     public GameManager(Player p1, Player p2) { // initializes a new game with two players and an empty field
         this.p1 = p1;
@@ -27,13 +29,15 @@ public class GameManager {
 
     public int nextRound(Group root) { // plays the next round and takes the group as a parameter to be able to call it to add children
 
+        root.getChildren().clear();
+
         // both players play cards
         Card playerOneCard = this.p1.playCard();
         Card playerTwoCard = this.p2.playCard();
 
         // rectangles with specific positions that represent the cards the players played
-        Rectangle p1PlayedCard = renderCard(playerOneCard, 315, 500);
-        Rectangle p2PlayedCard = renderCard(playerTwoCard, 315, 50);
+        p1PlayedCard = renderCard(playerOneCard, 315, 500);
+        p2PlayedCard = renderCard(playerTwoCard, 315, 50);
 
         // renders the played cards
         animateBoard(root, p1PlayedCard);
@@ -108,10 +112,9 @@ public class GameManager {
 
     // take a card and where it should be positioned to change its position on the board
     public Rectangle renderCard(Card C, int x, int y){
-        Rectangle r = C.cardRect;
-        r.setX(x);
-        r.setY(y);
-        return r;
+        C.cardRect.setX(x);
+        C.cardRect.setY(y);
+        return C.cardRect;
     }
 
     // checks to see if a player has won
